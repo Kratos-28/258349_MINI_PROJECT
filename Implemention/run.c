@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "sort.h"
+#include "bubble_sort.h"
 
 
 void file_creating()
@@ -18,10 +19,10 @@ void file_creating()
 		exit(1);
 	}
 
-	for (i = 0; i < 10000; i++) {
+	for (i = 0; i < 1000; i++) {
 
 		// to generate number less than 100000
-		int val = rand() % 100000;
+		int val = rand() % 1000;
 
 		// storing data to file
 		fprintf(fptr, "%d ", val);
@@ -44,6 +45,7 @@ int main()
 	
     // declaring array to store data from file
 	int arr[100000];
+	int arr2[100000];
     
     // declaring file pointer
 	FILE* fptr;
@@ -60,12 +62,22 @@ int main()
 		i++;
 	}
     //End with storing Integers to array
-
+	int size=0,j=0;
+	while (fscanf(fptr,"%d",&arr2[i])==1)
+	{size++;
+	j++;
+	
+	}
+	
     
     //Applying selection sort and finding the execution time
-    double time_taken_by_selection_sort=selection_sort(arr,n);
+    double time_taken_by_selection_sort= selection_sort(arr,n);
+    printf("Time take by selection sort is :%f\n",time_taken_by_selection_sort);
+      //Applying Bubble sort and finding the execution time
+    //bubble_sort(arr,n);
+   // printf("Time taken by bubble sort is :%f\n",time_taken_by_bubble_sort);
 
-    printf("Time take by selection sort is :%f",time_taken_by_selection_sort);
+   
 
 	return 0;
 }
