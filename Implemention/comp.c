@@ -31,6 +31,8 @@ int store_file(){
         printf( "File could not be opened.\n" );
     }
     int i = 0;
+    char *name;
+    char *min;
     while (fgets(buf, 255, fp) != NULL)
     {
         if ((strlen(buf)>0) && (buf[strlen (buf) - 1] == '\n'))
@@ -41,6 +43,7 @@ int store_file(){
 
         tmp = strtok(NULL, ",");
         sort[i].execution_time = strdup(tmp);
+        
 
 
         //tempBook.ID = atoi(buf);

@@ -3,14 +3,7 @@
 #include<stdio.h>
 #include<stdio.h>
 #include "time_store.h"
-void swap(int *xp, int *yp)
-{
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
-}
-//function for bubble sort starts here..
-double  bubble_sort(int arr[],int n){
+double insertion_sort(int array[], int size) {
     // data type for calculating time
 	clock_t starttime, endtime;
 
@@ -20,14 +13,20 @@ double  bubble_sort(int arr[],int n){
   
  starttime=clock();
   printf("starttime of bubble sort is%f\n",(float)starttime);
-    int i, j;
-   for (i = 0; i < n-1; i++)      
+  for (int step = 1; step < size; step++) {
+    int key = array[step];
+    int j = step - 1;
+
+    // Compare key with each element on the left of it until an element smaller than
+    // it is found.
+    // For descending order, change key<array[j] to key>array[j].
+    while (key < array[j] && j >= 0) {
+      array[j + 1] = array[j];
+      --j;
+    }
+    array[j + 1] = key;
+  }
   
-       // Last i elements are already in place   
-       for (j = 0; j < n-i-1; j++) 
-           if (arr[j] > arr[j+1])
-              swap(&arr[j], &arr[j+1]);
-   
 	// calculating clock when sorting ends
 	endtime = clock();
     printf("end time of bubble sort is%f\n",(float)endtime);
@@ -35,7 +34,6 @@ double  bubble_sort(int arr[],int n){
 	totaltime = ((double)(endtime - starttime)) / CLOCKS_PER_SEC;
 
     return totaltime;
-    
 }
 int main(){
     //TO Store the integer number from file to an array
@@ -60,12 +58,12 @@ int main(){
 	}
 	//End with storing Integers to array
 
-	//Applying bubble sort and finding the execution time
-    double time_taken_by_bubble_sort= bubble_sort(arr,n);
-    printf("Time take by bubble sort is :%f\n",time_taken_by_bubble_sort);
-	char name[20]="Bubble Sort";
+	//Applying insertion sort and finding the execution time
+    double time_taken_by_insertion_sort= insertion_sort(arr,n);
+    printf("Time take by insertion sort is :%f\n",time_taken_by_insertion_sort);
+	char name[20]="insertion Sort";
 	
 	//Storing name of sort and its exectuion time in csv file
-	store(name,time_taken_by_bubble_sort);
+	store(name,time_taken_by_insertion_sort);
 	return 0;
 }
