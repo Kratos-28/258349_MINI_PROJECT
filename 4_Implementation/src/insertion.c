@@ -2,7 +2,7 @@
 #include<unistd.h>
 #include<stdio.h>
 #include<stdio.h>
-#include "include/time_store.h"
+#include "../include/time_store.h"
 double insertion_sort(int array[], int size) {
     // data type for calculating time
 	clock_t starttime, endtime;

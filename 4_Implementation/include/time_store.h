@@ -3,7 +3,7 @@
 #include<string.h>
 
 void store(char sorting_name[],double time_taken){
-    FILE* fp = fopen("rough.csv", "a+");
+    FILE* fp = fopen("../src/rough.csv", "a+");
     if (!fp) {
         // Error in file opening
         printf("Can't open file\n");

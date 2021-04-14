@@ -2,7 +2,7 @@
 #include<unistd.h>
 #include<stdio.h>
 #include<stdio.h>
-#include "include/time_store.h"
+#include "../include/time_store.h"
 void swap(int *xp, int *yp)
 {
     int temp = *xp;
