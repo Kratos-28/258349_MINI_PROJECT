@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 #include<stdlib.h>
-#include "structure.h"
 #define MAX_LENGTH 1024;
 //structure to store content of file 
 struct sorting{
@@ -44,11 +43,8 @@ int store_file(){
         tmp = strtok(NULL, ",");
         sort[i].execution_time = strdup(tmp);
         
-
-
-        //tempBook.ID = atoi(buf);
-        //printf("index i= %i  ID: %i, %s, %s \n",i, sort[i].execution_time , sort[i].Name_of_sorting);
-    printf("exectuion time:%f\n",atof(sort[i].execution_time));
+        printf("%s, %s \n", sort[i].Name_of_sorting , sort[i].execution_time);
+    //printf("exectuion time:%f\n",atof(sort[i].execution_time));
         i++;
     }
     //free(buf);
