@@ -1,5 +1,5 @@
 # SDLC Activity Based learning
-[![C/C++ CI](https://github.com/Kratos-28/258349_MINI_PROJECT/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/Kratos-28/258349_MINI_PROJECT/actions/workflows/c-cpp.yml)   [![Static Code Quality- Cppcheck](https://github.com/Kratos-28/258349_MINI_PROJECT/actions/workflows/cpp-check.yml/badge.svg)](https://github.com/Kratos-28/258349_MINI_PROJECT/actions/workflows/cpp-check.yml)        [![Contribution Check - Git Inspector](https://github.com/Kratos-28/258349_MINI_PROJECT/actions/workflows/gitinspector.yml/badge.svg)](https://github.com/Kratos-28/258349_MINI_PROJECT/actions/workflows/gitinspector.yml)
+   [![Static Code Quality- Cppcheck](https://github.com/Kratos-28/258349_MINI_PROJECT/actions/workflows/cpp-check.yml/badge.svg)](https://github.com/Kratos-28/258349_MINI_PROJECT/actions/workflows/cpp-check.yml)        [![Contribution Check - Git Inspector](https://github.com/Kratos-28/258349_MINI_PROJECT/actions/workflows/gitinspector.yml/badge.svg)](https://github.com/Kratos-28/258349_MINI_PROJECT/actions/workflows/gitinspector.yml)
 ## Folder Structure
 Folder             | Description
 -------------------| -----------------------------------------
