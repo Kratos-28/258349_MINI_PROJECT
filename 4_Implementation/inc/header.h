@@ -33,3 +33,8 @@ void selection_sort();
  * 
  */
 void merge_sort();
+/**
+ * @brief Comparing the algorithms.
+ * 
+ */
+int store_file();

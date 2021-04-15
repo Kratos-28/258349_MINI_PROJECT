@@ -6,7 +6,7 @@ src\insertion.c\
 src\bubble.c\
 src\selection_run.c\
 src\Merge_sort.c\
-
+src\comp.c\
 
 
 INC = inc
