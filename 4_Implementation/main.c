@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include "include/header.h"
+#include "inc/header.h"
 int main(){
 Create();    
 bubble_sort();

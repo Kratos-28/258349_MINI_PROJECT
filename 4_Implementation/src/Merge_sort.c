@@ -2,7 +2,8 @@
 #include<unistd.h>
 #include<stdio.h>
 #include<stdio.h>
-#include "../include/header.h"
+#include "../inc/header.h"
+
 //storing exectuion time 
 void Store_File(char sorting_name[],double time_taken){
     FILE* fp = fopen("rough.csv", "a+");
