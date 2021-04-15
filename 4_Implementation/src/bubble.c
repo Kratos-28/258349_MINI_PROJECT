@@ -1,10 +1,12 @@
 #include<time.h>
 #include<unistd.h>
 #include<stdio.h>
-#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include "../include/header.h"
 //#include "../include/time_store.h"
 
-void storing(char sorting_name[],double time_taken){
+void file_store(char sorting_name[],double time_taken){
     FILE* fp = fopen("rough.csv", "a+");
     if (!fp) {
         // Error in file opening
@@ -14,14 +16,22 @@ void storing(char sorting_name[],double time_taken){
     fprintf(fp, "%s, %f \n",sorting_name,time_taken);
   
     printf("Execution time added to file\n");
-	printf("******************************************\n");
-  
+    printf("******************************************\n");
     fclose(fp);
 }
 
 
-void insertion_sort(/*int array[], int size*/) {
-	//TO Store the integer number from file to an array
+
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+
+//function for bubble sort starts here..
+void bubble_sort(/*int arr[],int n*/){
+	 //TO Store the integer number from file to an array
     int i=0,n=0;
 	
     // declaring array to store data from file
@@ -41,7 +51,7 @@ void insertion_sort(/*int array[], int size*/) {
 		// for incrementing the array index
 		i++;
 	}
-	//End with storing Integers to array
+	//End with file_store Integers to array
 
     // data type for calculating time
 	clock_t starttime, endtime;
@@ -49,28 +59,24 @@ void insertion_sort(/*int array[], int size*/) {
 	// variable for calculating total time of execution
 	double totaltime;
 
-  
  starttime=clock();
-
-  for (int step = 1; step < sizeof(arr)/sizeof(arr[0]); step++) {
-    int key = arr[step];
-    int j = step - 1;
-
-    // Compare key with each element on the left of it until an element smaller than
-    // it is found.
-    // For descending order, change key<arr[j] to key>arr[j].
-    while (key < arr[j] && j >= 0) {
-      arr[j + 1] = arr[j];
-      --j;
-    }
-    arr[j + 1] = key;
-  }
+    int k, m;
+   for (k = 0; k < n-1; k++)      
   
+       // Last k elements are already in place   
+       for (m = 0; m < n-k-1; m++) 
+           if (arr[m] > arr[m+1])
+              swap(&arr[m], &arr[m+1]);
+   
 	// calculating clock when sorting ends
 	endtime = clock();
+   
+
 	totaltime = ((double)(endtime - starttime)) / CLOCKS_PER_SEC;
-	char name[20]="Insertion Sort";
+	char name[20]="Bubble Sort";
 	printf("\nSorting name:= %s  Time taken= %f\n\n",name,totaltime);
-	storing(name,totaltime);
+	
+	file_store(name,totaltime);
     //return totaltime;
+    
 }

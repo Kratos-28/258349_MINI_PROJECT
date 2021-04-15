@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-int main()
-{
+void Create(){
 	// This program will create same sequence of
 	// random numbers on every program run
 	FILE* fptr;
@@ -25,6 +24,6 @@ int main()
 
 	// closing the file
 	fclose(fptr);
-	printf("numbers generated successfully !! \n");
+	printf("\n****Numbers generated successfully !!**** || \n");
 	
 }

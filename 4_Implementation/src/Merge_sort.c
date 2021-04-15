@@ -2,8 +2,21 @@
 #include<unistd.h>
 #include<stdio.h>
 #include<stdio.h>
-#include "../include/time_store.h"
-
+#include "../include/header.h"
+//storing exectuion time 
+void Store_File(char sorting_name[],double time_taken){
+    FILE* fp = fopen("rough.csv", "a+");
+    if (!fp) {
+        // Error in file opening
+        printf("Can't open file\n");
+        
+    }
+    fprintf(fp, "%s, %f \n",sorting_name,time_taken);
+  
+    printf("Execution time added to file\n");
+    printf("******************************************\n");
+    fclose(fp);
+}
 // Merges two subarrays of arr[].
 // First subarray is arr[l..m]
 // Second subarray is arr[m+1..r]
@@ -68,26 +81,9 @@ void mergeSort(int arr[], int l, int r)
         merge(arr, l, m, r);
     }
 }
-double merge_sort(int arr[], int l, int r)
-{// data type for calculating time
-	clock_t starttime, endtime;
+void merge_sort()
 
-	// variable for calculating total time of execution
- double totaltime;
-   starttime=clock();
-  printf("starttime of bubble sort is%f\n",(float)starttime);
-  mergeSort(arr,l,r);
-  // calculating clock when sorting ends
-	endtime = clock();
-    printf("end time of bubble sort is%f\n",(float)endtime);
-
-	totaltime = ((double)(endtime - starttime)) / CLOCKS_PER_SEC;
-
-    return totaltime;
-	
-}
- 
-int main(){
+{
     //TO Store the integer number from file to an array
     int i=0,n=0;
 	
@@ -110,12 +106,24 @@ int main(){
 	}
 	//End with storing Integers to array
 
-	//Applying merge sort and finding the execution time
-    double time_taken_by_merge_sort= merge_sort(arr,0,n-1);
-    printf("Time take by Merge sort is :%f\n",time_taken_by_merge_sort);
-	char name[20]="Merge Sort";
+    
+    // data type for calculating time
+	clock_t starttime, endtime;
+
+	// variable for calculating total time of execution
+ double totaltime;
+   starttime=clock();
+ 
+  mergeSort(arr,0,n-1);
+  // calculating clock when sorting ends
+	endtime = clock();
+
+	totaltime = ((double)(endtime - starttime)) / CLOCKS_PER_SEC;
+    char name[20]="Merge Sort";
+	printf("\nSorting name:= %s  Time taken= %f\n\n",name,totaltime);
+    Store_File(name,totaltime);
+
+    
 	
-	//Storing name of sort and its exectuion time in csv file
-	store(name,time_taken_by_merge_sort);
-	return 0;
 }
+ 

@@ -2,46 +2,24 @@
 #include <stdlib.h>
 #include <time.h>
 #include<unistd.h>
-#include "../include/time_store.h"
-double selection_sort(int arr[],int n){
-    // data type for calculating time
-    clock_t starttime, endtime; 
-  
-    // variable for calculating total time of execution
-    double totaltime; 
-    int i = 0, j, min, index;
-    // logic for selection sort....
-    // starts here...
-  
-    // calculating clock when sorting starts..
-    starttime = clock();
-    for (i = 0; i < n - 1; i++) {
-        min = arr[i];
-        for (j = i + 1; j < n; j++) {
-            if (arr[j] < min) {
-                min = arr[j];
-                index = j;
-            }
-        }
-  
-        // swapping the smallest number with 
-        // the current arr[i]th value
-        int temp = arr[i];
-        arr[i] = min;
-        arr[index] = temp;
+//storing exectuion time 
+void File_Store(char sorting_name[],double time_taken){
+    FILE* fp = fopen("rough.csv", "a+");
+    if (!fp) {
+        // Error in file opening
+        printf("Can't open file\n");
+        
     }
-    // selection sort logic ends here
+    fprintf(fp, "%s, %f \n",sorting_name,time_taken);
   
-    // calculating clock when sorting  ends
-    endtime = clock(); 
-    totaltime = ((double)(endtime - starttime)) / CLOCKS_PER_SEC;
-  
-    //printf("endtime : %f\n", (float)endtime);
-    return  totaltime;
+    printf("Execution time added to file\n");
+    printf("******************************************\n");
+    fclose(fp);
 }
 
-int main()
-{   
+//Logic for selection_sort
+void selection_sort(){
+
     //TO Store the integer number from file to an array
     int i=0,n=0;
 	
@@ -64,12 +42,41 @@ int main()
 	}
 	//End with storing Integers to array
 
-	//Applying selection sort and finding the execution time
-    double time_taken_by_selection_sort= selection_sort(arr,n);
-    printf("Time take by selection sort is :%f\n",time_taken_by_selection_sort);
-	char name[20]="Selection Sort";
-	
-	//Storing name of sort and its exectuion time in csv file
-	store(name,time_taken_by_selection_sort);
-	return 0;
+
+    // data type for calculating time
+    clock_t starttime, endtime; 
+  
+    // variable for calculating total time of execution
+    double totaltime; 
+    int k = 0, m, min, index;
+    // logic for selection sort....
+    // starts here...
+  
+    // calculating clock when sorting starts..
+    starttime = clock();
+    for (k = 0; k < n - 1; k++) {
+        min = arr[k];
+        for (m = k + 1; m < n; m++) {
+            if (arr[m] < min) {
+                min = arr[m];
+                index = m;
+            }
+        }
+  
+        // swapping the smallest number with 
+        // the current arr[k]th value
+        int temp = arr[k];
+        arr[k] = min;
+        arr[index] = temp;
+    }
+    // selection sort logic ends here
+  
+    // calculating clock when sorting  ends
+    endtime = clock(); 
+    totaltime = ((double)(endtime - starttime)) / CLOCKS_PER_SEC;
+    char name[20]="Selection Sort";
+	printf("\nSorting name:= %s  Time taken= %f\n\n",name,totaltime);
+    File_Store(name,totaltime);
+  
 }
+

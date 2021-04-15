@@ -25,7 +25,7 @@ int store_file(){
         printf ("No memory\n");
         return 1;
     }
-     if( ( fp = fopen( "rough.csv", "r" ) ) == NULL ) //Reading a file
+     if( ( fp = fopen( "../rough.csv", "r" ) ) == NULL ) //Reading a file
     {
         printf( "File could not be opened.\n" );
     }
