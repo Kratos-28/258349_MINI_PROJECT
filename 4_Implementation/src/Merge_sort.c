@@ -2,7 +2,6 @@
 #include<unistd.h>
 #include<stdio.h>
 #include<stdio.h>
-#include "../inc/header.h"
 
 //storing exectuion time 
 void Store_File(char sorting_name[],double time_taken){

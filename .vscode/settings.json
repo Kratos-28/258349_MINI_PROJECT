@@ -3,6 +3,7 @@
         "time.h": "c",
         "time_store.h": "c",
         "array": "c",
-        "atomic": "c"
+        "atomic": "c",
+        "header.h": "c"
     }
 }

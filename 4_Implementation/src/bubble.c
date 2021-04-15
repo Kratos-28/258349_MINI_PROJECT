@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include "../inc/header.h"
+
 
 
 void file_store(char sorting_name[],double time_taken){
