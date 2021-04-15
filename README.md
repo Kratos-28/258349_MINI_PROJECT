@@ -1,5 +1,5 @@
 # SDLC Activity Based learning
-
+[![Static Code Quality- Cppcheck](https://github.com/Kratos-28/258349_MINI_PROJECT/actions/workflows/cpp-check.yml/badge.svg)](https://github.com/Kratos-28/258349_MINI_PROJECT/actions/workflows/cpp-check.yml)
 ## Folder Structure
 Folder             | Description
 -------------------| -----------------------------------------
