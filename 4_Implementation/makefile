@@ -1,12 +1,12 @@
 PROJECT_NAME = main.exe
 
 SRC = main.c\
-src\file_creation.c\
-src\insertion.c\
-src\bubble.c\
-src\selection_run.c\
-src\Merge_sort.c\
-src\comp.c\
+src/file_creation.c\
+src/insertion.c\
+src/bubble.c\
+src/selection_run.c\
+src/Merge_sort.c\
+src/comp.c\
 
 
 INC = inc
